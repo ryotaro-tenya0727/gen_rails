@@ -9,9 +9,17 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-bland Taskleaf
     .container
+      .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+        .navbar-bland Taskleaf
+        ul.navbar-nav.mr-auto
+          - if current_user
+            li.nav-item= link_to 'タスク一覧', tasks_path, class: 'nav-link'
+            - if current_user.admin?
+              li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
+            li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+          - else
+            li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
       - if flash.notice.present?
         .alert.alert-success = flash.notice
       = yield
