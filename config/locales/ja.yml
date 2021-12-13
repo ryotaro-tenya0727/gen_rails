@@ -7,6 +7,10 @@ ja:
         restrict_dependent_destroy:
           has_one: '%{record}が存在しているので削除できません'
           has_many: '%{record}が存在しているので削除できません'
+  taskleaf:
+    page:
+      titles:
+        tasks: "タスク一覧"
   attributes:
     task:
     id: ID
@@ -29,7 +33,6 @@ ja:
       - 金
       - 土
     abbr_month_names:
-      -
       - 1月
       - 2月
       - 3月

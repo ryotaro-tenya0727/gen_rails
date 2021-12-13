@@ -16,6 +16,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
+      task_logger.debug "ログを出力#{@task.attributes}"
       redirect_to @task,notice: "タスク「#{@task.name}を登録しました」"
     else
       render :new
@@ -45,5 +46,9 @@ class TasksController < ApplicationController
 
   def set_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def task_logger
+    @task_logger ||= Logger.new('log/task.log','daily')
   end
 end
