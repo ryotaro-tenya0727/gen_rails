@@ -46,8 +46,8 @@ class TasksController < ApplicationController
 
   def destroy
     @task = current_user.tasks.find(params[:id])
-    task.destroy
-    redirect_to tasks_url, notice: "タスク「#{task.name}を削除だにょ〜ん"
+    @task.destroy
+    redirect_to tasks_url, notice: "タスク「#{@task.name}を削除だにょ〜ん"
   end
 
   def confirm_new
@@ -57,7 +57,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :image)
   end
 
   def set_task
