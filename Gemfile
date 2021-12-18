@@ -10,6 +10,8 @@ gem "bcrypt", "~> 3.1.7"
 gem "rails_autolink"
 gem "ransack"
 gem "mailcatcher"
+gem "kaminari"
+gem "sidekiq"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 6.1.3", ">= 6.1.3.2"
 # Use mysql as the database for Active Record

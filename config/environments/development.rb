@@ -8,6 +8,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { address: '127.0.0.1', port: 1025 }
+  config.active_job.queue_adapter = :sidekiq
 
   config.cache_classes = false
   config.logger = Logger.new('log/development.log', 'daily')
