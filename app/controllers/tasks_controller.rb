@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     if @task.save
       TaskMailer.creation_email(@task).deliver_now
       # task_logger.debug "ログを出力#{@task.attributes}"
-      SampleJob.perform_later
+      # SampleJob.perform_later
       redirect_to @task,notice: "タスク「#{@task.name}を登録しました」"
     else
       render :new
