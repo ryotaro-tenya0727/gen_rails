@@ -1,6 +1,6 @@
 h1 タスク一覧
 
-= search_form_for @q,url: tasks_path,html: { method: :get }, class: 'mb-5' do |f|
+= search_form_for @q, class: 'mb-5' do |f|
   .form-group.row
     = f.label :name_cont, '名称', class: 'col-sm-2 col-form-label'
     .col-sm-10

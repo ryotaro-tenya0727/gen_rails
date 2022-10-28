@@ -11,7 +11,10 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   config.cache_classes = false
-  config.logger = Logger.new('log/development.log', 'daily')
+  config.logger = Logger.new('log/trace.log', 'daily')
+  config.logger.formatter = proc {|severity, timestamp, progname, message|
+    "#{timestamp}: #{severity} #{message}\n"
+  }
   # Do not eager load code on boot.
   config.eager_load = false
 

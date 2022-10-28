@@ -34,6 +34,8 @@ class Task < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     []
   end
+
+
   private
   def validate_name_not_including_comma
     errors.add(:name,'にカンマを含めることはできないよ〜ん') if name&.include?(',')
